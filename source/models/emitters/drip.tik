@@ -1,0 +1,256 @@
+TIKI
+setup
+{
+	scale 1.0
+	path models/fx/dummy
+	skelmodel dummy3.skd
+}
+
+init
+{
+	server
+	{
+		classname effectentity
+		notsolid
+		rendereffects +dontdraw
+	}
+	client
+	{
+		originemitter "snow0"
+		(
+			spawnrate 0.05
+			model textures/snow0.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		/*
+		originemitter "snow1"
+		(
+			spawnrate 0.9
+			model textures/snow1.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		*/
+		originemitter "snow2"
+		(
+			spawnrate 0.10
+			model textures/snow2.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		originemitter "snow3"
+		(
+			spawnrate 0.15
+			model textures/snow3.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		originemitter "snow4"
+		(
+			spawnrate 0.20
+			model textures/snow4.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		/*
+		originemitter "snow5"
+		(
+			spawnrate 1.3
+			model textures/snow5.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		*/
+		originemitter "snow6"
+		(
+			spawnrate 0.25
+			model textures/snow6.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		originemitter "snow7"
+		(
+			spawnrate 0.30
+			model textures/snow7.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		/*
+		originemitter "snow8"
+		(
+			spawnrate 0.5
+			model textures/snow8.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		*/
+		originemitter "snow9"
+		(
+			spawnrate 0.35
+			model textures/snow9.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		originemitter "snow10"
+		(
+			spawnrate 0.40
+			model textures/snow10.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		originemitter "snow11"
+		(
+			spawnrate 0.45
+			model textures/snow11.spr
+			color 0.7 0.7 0.7
+			collision
+			bouncefactor 0.3
+			scale 0.15
+			life 120
+			radius 150
+			randvel crandom 50 crandom 50 range -10 10
+			accel 0 0 -50
+			circle
+			physicsrate every
+			dietouch
+		)
+		
+		cache textures/snow0.spr
+		//cache textures/snow1.spr
+		cache textures/snow2.spr
+		cache textures/snow3.spr
+		cache textures/snow4.spr
+		//cache textures/snow5.spr
+		cache textures/snow6.spr
+		cache textures/snow7.spr
+		//cache textures/snow8.spr
+		cache textures/snow9.spr
+		cache textures/snow10.spr
+		cache textures/snow11.spr
+	}
+}
+
+animations
+{
+	idle dummy3.skc
+	{
+		server
+		{
+			//last commanddelay 1 anim idle
+		}
+
+		client
+		{
+			//emitter_on snow
+		}
+	}
+}
+
+/*QUAKED fx_snowcontest_snow (0.0 0.5 0.5) (-8 -8 -8) (8 8 8)
+Overwrites emitters/drip.tik
+*/

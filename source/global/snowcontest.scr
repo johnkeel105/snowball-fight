@@ -1,0 +1,203 @@
+main:
+	level.sc_version = "1.1"
+
+	exec global/jv_mp_players.snow
+	waitthread global/jv_mp_players.snow::add_stage_thread ("global/snowcontest.scr"::takeweapons) join 0
+	
+	thread ammo
+	
+	// make some mood :)
+	if (level.snowmood == 1)
+	{
+		soundtrack "music/m6l1c.mus"
+		$world.farplane_color = (0.8 0.8 0.8)
+		$world.farplane = 6000
+		$world.farplane_cull = 1 // we're useing fastsky anyway
+	}
+	
+	// make server findable on ASE
+	//thread hostname // uncomment this line if you want '(Snow Contest)' automatically suffixed after your hostname.
+	
+	// download mod message
+	thread info
+end
+
+info:
+	wait 30
+	while(1)
+	{
+		locprint 160 80 ("Snow Contest v" + level.sc_version + " by jv_map")
+		wait 3
+		locprint 140 80 "Download at: www.planetmedal.com/freebrief"
+		wait 120
+	}
+end
+
+hostname:
+	wait 15 // allow some time to set forbid cvar
+	local.nochangename = getcvar sc_forbidservernamechange
+	if(local.nochangename != "1")
+	{
+		local.oldname = getcvar sv_hostname
+		local.suffix = "(Snow Contest v" + level.sc_version + ")"
+		
+		local.dontneedchange = waitthread checkhostnamesuffix local.oldname local.suffix
+		
+		if !(local.dontneedchange)
+		{
+			local.newname = local.oldname + " " + local.suffix
+			
+			println "Snow Contest: Changing server name to " local.newname
+			setcvar sv_hostname local.newname
+			
+			while(local.nochangename != "1")
+			{
+				wait 1
+				local.nochangename = getcvar sc_forbidservernamechange
+			}
+			
+			println "Snow Contest: Restoring server name to " local.oldname
+			setcvar sv_hostname local.oldname
+		}
+	}
+end
+
+checkhostnamesuffix local.hostname local.suffix:
+	local.j = local.suffix.size
+	for(local.i = local.hostname.size; local.i >= local.hostname.size - local.suffix.size + 1; local.i--)
+	{
+		local.hostchar = local.hostname[(local.i - 1)]
+		local.suffchar = local.suffix[(local.j - 1)]
+		//println "charcheck: i=" local.i " j=" local.j " hc='" local.hostchar "' sc='" local.suffchar "'"
+		if(local.hostchar != local.suffchar)
+			end 0
+		local.j--
+	}
+end 1
+
+takeweapons:
+	parm.player takeall
+	parm.player weapon weapons/m2frag_grenade.tik
+	//parm.player ammo grenade -4
+	waitframe
+	parm.player useweaponclass grenade
+	parm.player iprint "Crouch to create more snowballs!"
+	
+	if(parm.player.breathethread)
+		parm.player.breathethread remove
+	
+	parm.player thread breathe
+	parm.player.breathethread = parm.previousthread
+	
+	if (level.snowmood == 1)
+	{
+		// make the mood good :)
+		parm.player stufftext "r_fastsky 1"
+	}
+	
+	if(level.addsnow == 1 && (getcvar sc_nosnow) != "1")
+	{
+		if(parm.player.snowthread)
+			parm.player.snowthread.terminate = 1
+		
+		parm.player thread snow
+		parm.player.snowthread = parm.previousthread
+	}
+end
+
+snow: // :)
+	for(local.i = 1; local.i <= 25; local.i++)
+	{
+		local.ent[local.i] = spawn emitters/drip.tik
+		//local.ent[local.i] alwaysdraw
+	}
+	
+	while(self != NIL && isAlive self && local.terminate != 1 && (getcvar sc_nosnow) != "1")
+	{
+		local.flatvelocity = self.velocity
+		local.flatvelocity[2] = 0
+		
+		local.tmp_origin = self.origin + local.flatvelocity * 4.0 // was 3
+		local.tmp_origin[2] = self.origin[2] + 400 //level.snowheight
+		
+		local.i = 0
+		for(local.x = -2; local.x <= 2; local.x++)
+		{
+			for(local.y = -2; local.y <= 2; local.y++)
+			{
+				local.i++
+				local.ent[local.i].origin = local.tmp_origin + (local.x local.y 0) * 250.0 // was 150
+			}	
+		}
+		wait 0.5 // was waitframe but caused lag
+	}
+	
+	local.num = local.ent.size
+	for(local.i = 1; local.i <= local.num; local.i++)
+		local.ent[local.i] commanddelay 0.05 remove
+end
+
+breathe:
+	while(self != NIL && isAlive self)
+	{
+		while(self != NIL && isAlive self && (self getmovement)[0] != s)
+			wait 0.5
+		if(self != NIL && isAlive self)
+		{
+			// dead people don't breathe ;)
+			self attachmodel models/emitters/breath_steam_emitter.tik "Bip01 Head" 1 1
+			wait ((randomfloat 1) + 3.5)
+		}
+	}
+end
+
+ammo:
+	while(1)
+	{
+		for(local.i = 1; local.i <= $player.size; local.i++)
+		{
+			local.p = $player[local.i]
+			if(local.p.ingame)	
+			{
+				if(local.p.awardingnade != 1)
+				{
+					if(local.p.fireheld != 1 && local.p.useheld != 1)
+					{
+						//println "position: " (local.p getposition)
+						if((local.p getposition)[0] == "c") // crouching
+						{
+							//println "movement: " (local.p getmovement)
+							if((local.p getmovement)[0] == "s") // standing
+							{
+								local.p.awardingnade = 1
+								local.p thread awardnade
+							}
+						}
+					}
+				}
+			}
+		}
+		waitframe
+	}
+end
+
+awardnade:
+	local.time = 0
+	while(isAlive self && (self getposition)[0] == "c" && (self getmovement)[0] == "s" && self.fireheld != 1 && self.useheld != 1 && local.time <= 1.75)
+	{
+		self loopsound snd_step_snow
+		waitframe
+		local.time += 0.05
+	}
+	self stoploopsound snd_step_snow
+	waitframe
+	//println "time is: " local.time
+	if(local.time >= 1.75)
+	{
+		//println "giving nade!"
+		self ammo grenade 1
+		self useweaponclass grenade
+	}
+	wait 0.25
+	self.awardingnade = 0
+end
