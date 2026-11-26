@@ -1,0 +1,85 @@
+This is the |DOS| Snowball Fight mod for the |DOS| Winter 24' Holiday Bash. The snowball mod, added maps, and skins were created by many great and talented modders that came long before us. For many years, we have internally compiled this mod to add maps and skins for the fun and enjoyment of our gaming clan. Now we want to share this with all MOHAA players. We strive to make additions and improvements to the mod where possible. We are focusing on getting this mod working perfect in base MOHAA. We are not experts, but will do our best! We give full creative kudos to JV_Map for developing the underpinning of the snowball contest and all the scripting to make it happen.
+
+Map List:
+dm/backyard - Backyard
+dm/belowzero1 - Below Zero
+dm/dmxfire2v2 - Crossfire Courtyard 2v2
+dm/dv_snow - Destroyed Village Snow
+dm/raildepotfinal - Rail Depot Final (Snow Edition)
+dm/stalingradsnow - Stalingrad Snow
+dm/stalingrad_snow2 - Stalingrad Snow II
+dm/user_98snowsniperfury - Snow Sniper Fury
+dm/weihnachtsmarkt - Weihnachtsmarkt
+
+To install please place the file:
+
+zzzdossnowballfight1.3.pk3
+
+Into your MOHAA/main directory of Medal of Honor Allied Assault. All mods and skins have been checked to be compatible with MOHAA. Remove old versions of these mods from MOHAA/main.
+
+
+Mod Changelist:
+|DOS| Snowball Fight Mod Changes 1.3 8/18/2024
+-New Map: Weihnachtsmarkt by a Community Member
+-Adjusted Weihnachtsmarkt information to support Snowball mod and added Map Name and Image to Scoreboard
+-Fixed SkyBox & Audio issue with Below Zero (Thus fixing Pink Sky Known Issue for this Release)
+-Added Loading Bar to Snow Sniper Fury
+-Added Credits and ModDB Download Location on 60 Second Server Message Rotation
+
+
+|DOS| Snowball Fight Mod Changes 1.294 Beta 1 1/4/2017
+-Beta Release
+
+|DOS| Snowball Fight Mod Changes 1.293 12/30/2017
+-Added Christmas Tree Compass by .Vk#oH' Alex [Cl-Be] and .Vk#oH'_EL_Despa_*X*
+
+|DOS| Snowball Fight Mod Changes 1.292 12/29/2017
+-Compiled All Files for Build Test
+
+|DOS| Snowball Fight Mod Changes 1.28 12/28/2017
+-New Map: Stalingrad Snow II by GEN COBRA COMMAND
+-Adjusted Stalingrad Snow II information to support Snowball mod
+-Updated Stalingrad Snow II Map Loadscreen/In Game Menu Text
+-Fixed missing snowflake texture on Stalingrad Snow II
+-New Map: Crossfire Courtyard 2v2 by Y'diss
+-Adjusted Crossfire Courtyard 2v2 information to support Snowball mod
+-Added Ambient Background Noise to Crossfire Courtyard 2v2
+-New Map: Destroyed Village Snow by Herr Kruger
+-Adjusted Destroyed Village Snow information to support Snowball mod
+-Updated Destoyed Village Snow Map Loadscreen/In Game Menu Text
+
+-Added Ambient Background Noise to Stalingrad Snow
+|DOS| Snowball Fight Mod Changes 1.27 12/27/2017
+-New Map: Snow Sniper Fury by MCunha98
+-Adjusted Snow Sniper Fury information to support Snowball mod
+-Updated Snow Sniper Fury Map Loadscreen/In Game Menu Text
+-Isolated Stalingrad Snow Files and scripted new loadscreen
+-Added Ambient Background Noise to Stalingrad Snow
+
+|DOS| Snowball Fight Mod Changes 1.26 12/26/2017
+-New Map: Rail Depot Final by Anon
+-Adjusted Rail Depot Final information to support Snowball mod
+-Added new Ambient Background Noise to Rail Depot Final
+-Updated Rail Depot Map Loadscreen/In Game Menu Text
+-Adjusted MG42 Text to "MG42 (Frozen)"
+
+|DOS| Snowball Mod Changes 1.25 12/24/2010
+-New Map: Below Zero by Kreator
+-Adjusted Below Zero information to support Snowball mod
+
+|DOS| Snowball Mod Changes 1.24
+-New Map: Stalingrad Snow by GEN COBRA COMMAND
+-Adjusted Stalingrad Snow information to support Snowball mod
+
+|DOS| Snowball Mod Changes 1.23
+-Added New Snowball Drop Sounds
+
+|DOS| Snowball Mod Changes 1.21
+-Added New Medpack Texture
+-Added New Medpack Pickup Sound
+-Added New Snowball Pickup Sound
+
+
+Known Issues:
+-Snowball Pickup still lists a Grenade Pickup in upper left update text
+-Map Compatibility, Sky can become Pink on some maps after loading custom map with poor SkyBox Config
