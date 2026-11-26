@@ -34,3 +34,15 @@ Backyard
 		rgbGen lightingSpherical
 	}
 }
+
+// 1.43-test: the thrown snowball uses the stock M2FragGrenade shader name
+// so unmodded clients render their stock grenade; with the mod installed
+// this override makes it snow.
+M2FragGrenade
+{
+	qer_editorimage textures/decals/snowonwall.tga
+	{
+		map textures/decals/snowonwall.tga
+		rgbGen lightingSpherical
+	}
+}
