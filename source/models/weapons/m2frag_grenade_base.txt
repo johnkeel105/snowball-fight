@@ -40,7 +40,7 @@ init
 		// Primary fire type info (fast, arcing throw)
 		firetype		projectile
 		ammotype		"grenade"
-		projectile		models/static/rock_winter_medium.tik
+		projectile		models/projectiles/M2FGrenade_primary.tik
 		semiauto
 		clipsize		1
 		startammo		1
@@ -58,7 +58,7 @@ init
 		shareclip
 		secondary firetype		projectile
 		secondary ammotype		"grenade"
-		secondary projectile	models/static/rock_winter_medium.tik
+		secondary projectile	models/projectiles/M2FGrenade.tik
 		secondary clipsize		1
 		secondary ammorequired	0
 		secondary firedelay		0.75
@@ -69,19 +69,19 @@ init
 		weapongroup		grenade
 
 		// DM Attributes
-		dmprojectile		models/static/rock_winter_medium.tik
+		dmprojectile		models/projectiles/M2FGrenade_primary.tik
 		dmstartammo			6
 		dmammorequired		1
 		//dmusenoammo			1
 		dmfiredelay			0.75
 		dmcrosshair			0
 		dmmovementspeed 	1.0
-		secondary dmprojectile	models/static/rock_winter_medium.tik
+		secondary dmprojectile	models/projectiles/M2FGrenade.tik
 		secondary dmammorequired	1
 		secondary dmfiredelay		0.75
 
-		cache models/static/rock_winter_medium.tik
-		cache models/static/rock_winter_medium.tik
+		cache models/projectiles/M2FGrenade_primary.tik
+		cache models/projectiles/M2FGrenade.tik
 	}
 	client
 	{

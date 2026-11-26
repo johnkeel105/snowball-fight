@@ -55,7 +55,6 @@ animations
 		server
 		{
 			first ai_event grenade 384	// explosion radius is 256
-			first setshader textures/central_europe_winter/snowfield	// 1.44-test: assign the stock snow texture so unmodded clients see a snow-textured grenade
 			last anim idle			// HACK! for some reason, server events don't get reposted after looping
 		}
 	}
