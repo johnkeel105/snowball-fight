@@ -13,11 +13,11 @@ setup
 	surface material2 shader snowball
 	*/
 	
-	// 1.42-test: stock grenade model so players without the mod see a
-	// snowball in hand; the mod overrides the M2FragGrenade shader with snow
+	// 1.42-test: stock grenade model with a stock snow texture so players
+	// without the mod see a white snowball in hand
 	path models/weapons/M2FragGrenade
 	skelmodel grenade.skd
-	surface grenade shader M2FragGrenade
+	surface grenade shader textures/central_europe_winter/snowfield
 }
 
 init

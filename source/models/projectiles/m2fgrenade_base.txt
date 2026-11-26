@@ -5,7 +5,7 @@ setup
 	
 	path models/projectiles/M2FGrenade
 	skelmodel grenade_air.skd
-	surface grenade shader M2FragGrenade // 1.42-test: stock shader name so unmodded clients see the thrown snowball; the mod overrides this shader with snow
+	surface grenade shader textures/central_europe_winter/snowfield // 1.42-test: stock snow texture so unmodded clients see a white thrown object
 	
 	/*
 	path models/snowcontest
