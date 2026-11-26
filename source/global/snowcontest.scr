@@ -1,6 +1,6 @@
 main:
-	level.sc_version = "1.4-test"
-	println "Snowball Fight 1.4-test: top-priority fixes loaded"
+	level.sc_version = "1.41-test"
+	println "Snowball Fight 1.41-test: top-priority fixes loaded"
 
 	exec global/jv_mp_players.snow
 	waitthread global/jv_mp_players.snow::add_stage_thread ("global/snowcontest.scr"::takeweapons) join 0
