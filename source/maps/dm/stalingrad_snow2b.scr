@@ -25,9 +25,6 @@ exec global/shutter.scr
 if(level.roundbased)
 thread roundbasedthread
 
-// call additional stuff for playing this map round based is needed
-	if(level.roundbased)
-		thread roundbasedthread
 		
 	level waitTill prespawn
 
@@ -70,4 +67,18 @@ level.rain_min_dist = "768"
 level.rain_numshaders = 12
 level.rain_shader = "textures/snow"
 }
+end
+
+roundbasedthread:
+
+	level waitTill prespawn
+
+	level waittill spawn
+
+	level.dmrespawning = 0 // 1 or 0
+	level.dmroundlimit = 5 // round time limit in minutes
+	level.clockside = kills // set to axis, allies, kills, or draw
+
+	level waittill roundstart
+
 end

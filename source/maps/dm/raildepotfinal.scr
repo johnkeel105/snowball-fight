@@ -11,12 +11,16 @@ setcvar "g_obj_axistext3" ""
 
 setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/raildepotfinal.jpg"
 
+	// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+
 	level waitTill prespawn
 
 	//*** Precache Dm Stuff
 	exec global/DMprecache.scr
 
-	level.script = maps/dm/RaildepotFinal.scr
+	level.script = maps/dm/raildepotfinal.scr
 
 	level waittill spawn
 

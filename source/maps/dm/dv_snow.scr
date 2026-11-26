@@ -25,7 +25,7 @@ setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/dv_snow.jpg"
 	exec global/DMprecache.scr
 
 	exec global/door_locked.scr::lock
-	level.script = maps/dm/mohdm2.scr
+	level.script = maps/dm/dv_snow.scr
 	exec global/ambient.scr mohdm2
 	
 	level waittill spawn
@@ -52,8 +52,6 @@ snow:
 	level.rain_shader = "textures/snow0"
 
 
-end
-	
 	//add in our kill brush under the cheat point.
 	local.killbrush = spawn trigger_hurt
 	local.killbrush damage 10000

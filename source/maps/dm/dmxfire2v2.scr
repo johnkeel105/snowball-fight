@@ -12,7 +12,7 @@ main:
 	setcvar "g_obj_axistext2" "or no more than 6 players"
 	setcvar "g_obj_axistext3" ""
 	
-	setcvar "g_scoreboardpic" "dmxfire2v2.tga"
+	setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/dmxfire2v2.tga"
 
 	// call additional stuff for playing this map round based is needed
 

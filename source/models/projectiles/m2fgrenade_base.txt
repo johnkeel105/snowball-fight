@@ -44,7 +44,7 @@ init
 		//avelocity		random 90 random 90 60
 		explodeontouch
 		//cache blastmark.spr
-		cache models/fx/grenexp_snow.tik
+		//cache models/fx/grenexp_snow.tik // 1.4-test: file not in package
 	}
 }
 

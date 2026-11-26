@@ -22,10 +22,10 @@ wow_pants
 
 wow_face
 {
-	qer_editorimage textures/wow_face.tga
+	qer_editorimage textures/wow_face.jpg
 	cull none
 	{
-		map textures/wow_face.tga
+		map textures/wow_face.jpg
 		rgbGen lightingSpherical
 	}
 }

@@ -116,7 +116,7 @@ rect 96 48 448 336
 fgcolor 1.00 1.00 1.00 1.00
 bgcolor 1.00 1.00 1.00 0.00
 borderstyle "NONE"
-shader "dmxfire2v2.tga"
+shader "dmxfire2v2"
 }
 resource
 Label

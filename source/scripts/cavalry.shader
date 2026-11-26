@@ -1,4 +1,4 @@
-Short sleeves Cavalry
+// Short sleeves Cavalry
 
 cav2_tunic
 {
@@ -20,7 +20,7 @@ cav2_pants
 
 
 
-Long Sleeves
+// Long Sleeves
 
 cav1_tunic
 {
@@ -67,7 +67,7 @@ viewsleeves_cav1
 		rgbGen lightingSpherical
 	}
 }
-shared
+// shared
 
 ehat
 {
@@ -91,7 +91,7 @@ cav_face
 {
 	qer_editorimage textures/cav_face.jpg
 	{
-		map textures/cav_face.tga
+		map textures/cav_face.jpg
 		rgbGen lightingSpherical
 	}
 }

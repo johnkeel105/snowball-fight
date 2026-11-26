@@ -26,9 +26,6 @@ exec global/shutter.scr
 if(level.roundbased)
 thread roundbasedthread
 
-// call additional stuff for playing this map round based is needed
-	if(level.roundbased)
-		thread roundbasedthread
 		
 	level waitTill prespawn
 
@@ -47,3 +44,45 @@ level.script = maps/dm/stalingrad_snow2.scr
 
         level.addsnow = 1
         exec global/snowcontest.scr
+
+	// 1.4-test: guard the BSP Kar98 pickup spot so it cannot hand out a rifle.
+	thread kar98guard
+
+end
+
+roundbasedthread:
+
+	level waitTill prespawn
+
+	level waittill spawn
+
+	level.dmrespawning = 0 // 1 or 0
+	level.dmroundlimit = 5 // round time limit in minutes
+	level.clockside = kills // set to axis, allies, kills, or draw
+
+	level waittill roundstart
+
+end
+
+kar98guard:
+
+	local.guard = spawn trigger_multiple
+	local.guard.origin = ( 4583 5 832 )
+	local.guard setsize ( -64 -64 -32 ) ( 64 64 96 )
+
+	while(1)
+	{
+		local.guard waittill trigger
+		local.player = parm.other
+		if(local.player && isAlive local.player && local.player.sc_kar98guard != 1)
+		{
+			local.player.sc_kar98guard = 1
+			parm.player = local.player
+			waitthread global/snowcontest.scr::takeweapons
+			wait 0.5
+			local.player.sc_kar98guard = 0
+		}
+		waitframe
+	}
+
+end

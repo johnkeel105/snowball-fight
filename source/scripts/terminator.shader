@@ -26,9 +26,9 @@ cull_tt_pants
 
 ttface
 {
-	qer_editorimage textures/ttface.tga
+	qer_editorimage textures/ttface.jpg
 	{
-		map textures/ttface.tga
+		map textures/ttface.jpg
 		rgbGen lightingSpherical
 	}
 }

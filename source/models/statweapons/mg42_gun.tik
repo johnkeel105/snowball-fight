@@ -17,7 +17,7 @@ init
 	{
 		classname		TurretGun
 		weapontype		mg
-		name			"MG42 (Frozen)"
+		name			"MG42 Snowball"
 
 		// turret settings
 		idleCheckOffset	"-56 0 0"
@@ -36,7 +36,7 @@ init
 //		ammorequired	1
 //		ammorequired	0
 		usenoammo		1
-		firedelay		0.06
+		firedelay		0.375 // 1.4-test: about 2x the player snowball throw rate (0.75)
 		bulletrange		4000
 		bulletdamage	45
 		bulletspread	40 40
@@ -48,12 +48,12 @@ init
 
 		// DM Attributes
 		dmbulletcount		1
-		dmfiredelay		0.06
+		dmfiredelay		0.375 // 1.4-test: about 2x the player snowball throw rate (0.75)
 		dmbulletrange		4000
 		dmbulletdamage	45
 		dmbulletspread	40 40
 		
-		//setplayerusable 1 // don't allow usage of mg-42s in snowcontest mode
+		setplayerusable 1 // 1.4-test: mountable snowball MG
 	}
 	client
 	{
@@ -73,7 +73,7 @@ animations
 	{
 		server
 		{
-			//entry shoot // just smoke instead of shoot :)
+			entry shoot // 1.4-test: actually launch snowballs
 		}
 		client
 		{
@@ -145,5 +145,5 @@ animations
 }
 
 /*QUAKED turretweapon_german_mg42 (0.5 .25 0.25) (-8 -8 0) (8 8 16) FAKEBULLETS
-MG42 gun turret (disabled for use with snow contest mod)
+MG42 gun turret (snowball turret for Snowball Fight)
 */

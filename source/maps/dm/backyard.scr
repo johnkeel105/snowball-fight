@@ -13,6 +13,32 @@ setcvar "g_obj_axistext3" ""
 
 setcvar "g_scoreboardpic" "loading_back"
 
+// 1.4-test: this BSP only has team spawns, so add FFA spawns at team-spawn spots.
+	local.spawner1 = spawn info_player_deathmatch
+	local.spawner1.origin = ( -152 320 32 )
+	local.spawner1 angle 45
+	local.spawner2 = spawn info_player_deathmatch
+	local.spawner2.origin = ( -216 280 32 )
+	local.spawner2 angle 45
+	local.spawner3 = spawn info_player_deathmatch
+	local.spawner3.origin = ( -128 272 32 )
+	local.spawner3 angle 45
+	local.spawner4 = spawn info_player_deathmatch
+	local.spawner4.origin = ( -224 344 32 )
+	local.spawner4 angle 45
+	local.spawner5 = spawn info_player_deathmatch
+	local.spawner5.origin = ( 464 960 32 )
+	local.spawner5 angle 225
+	local.spawner6 = spawn info_player_deathmatch
+	local.spawner6.origin = ( 488 904 32 )
+	local.spawner6 angle 225
+	local.spawner7 = spawn info_player_deathmatch
+	local.spawner7.origin = ( 384 1000 32 )
+	local.spawner7 angle 225
+	local.spawner8 = spawn info_player_deathmatch
+	local.spawner8.origin = ( 528 1000 32 )
+	local.spawner8 angle 225
+
 	// call additional stuff for playing this map round based is needed
 	if(level.roundbased)
 		thread roundbasedthread

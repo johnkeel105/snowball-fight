@@ -9,29 +9,64 @@ setcvar "g_obj_axistext2" ""
 setcvar "g_obj_axistext3" "" 
 setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/snowsniperfury_loading.jpg"
 
+// 1.4-test: this BSP only has team spawns, so add FFA spawns at team-spawn spots.
+	local.spawner1 = spawn info_player_deathmatch
+	local.spawner1.origin = ( 928 896 560 )
+	local.spawner1 angle 270
+	local.spawner2 = spawn info_player_deathmatch
+	local.spawner2.origin = ( 464 832 576 )
+	local.spawner2 angle 270
+	local.spawner3 = spawn info_player_deathmatch
+	local.spawner3.origin = ( 560 880 576 )
+	local.spawner3 angle 0
+	local.spawner4 = spawn info_player_deathmatch
+	local.spawner4.origin = ( 96 912 736 )
+	local.spawner4 angle 270
+	local.spawner5 = spawn info_player_deathmatch
+	local.spawner5.origin = ( 416 928 896 )
+	local.spawner5 angle 90
+	local.spawner6 = spawn info_player_deathmatch
+	local.spawner6.origin = ( 1984 1568 560 )
+	local.spawner6 angle 180
+	local.spawner7 = spawn info_player_deathmatch
+	local.spawner7.origin = ( 736 -2384 576 )
+	local.spawner7 angle 90
+	local.spawner8 = spawn info_player_deathmatch
+	local.spawner8.origin = ( 560 -2192 576 )
+	local.spawner8 angle 90
+	local.spawner9 = spawn info_player_deathmatch
+	local.spawner9.origin = ( 432 -2240 736 )
+	local.spawner9 angle 90
+	local.spawner10 = spawn info_player_deathmatch
+	local.spawner10.origin = ( 1120 -1632 912 )
+	local.spawner10 angle 180
+	local.spawner11 = spawn info_player_deathmatch
+	local.spawner11.origin = ( 2026 -1700 560 )
+	local.spawner11 angle 90
+	local.spawner12 = spawn info_player_deathmatch
+	local.spawner12.origin = ( 160 -2372 560 )
+	local.spawner12 angle 90
 
+if(level.roundbased) 
+ thread roundbasedthread 
+
+level waittill prespawn 
+
+exec global/DMprecache.scr 
+exec global/door_locked.scr
+level.script = maps/dm/user_98snowsniperfury.scr 
+exec global/ambient.scr mohdm3
+
+$world farplane_color "0.752941 0.752941 0.752941" 
+level.fogplane = 4300 
+$world farplane level.fogplane
 
 level waittill spawn
-	
-	level.addsnow = 1
 
-	exec global/snowcontest.scr
+level.addsnow = 1
 
+exec global/snowcontest.scr
 
- if(level.roundbased) 
-  thread roundbasedthread 
-  level waittill prespawn 
-
-  exec global/DMprecache.scr 
-  exec global/door_locked.scr
-  level.script = maps/dm/user_98snowsniperfury.scr 
-  exec global/ambient.scr mohdm3
-
-  $world farplane_color "0.752941 0.752941 0.752941" 
-  level.fogplane = 4300 
-  $world farplane level.fogplane
-
-  level waittill roundstart
 end 
 
 roundbasedthread: 
