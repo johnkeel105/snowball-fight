@@ -1,0 +1,16 @@
+stalingrad_snow2//This is the same name as the name of the shader file 
+{
+nomipmaps
+nopicmip
+cull none
+force32bit
+surfaceparm nolightmap
+{
+map $whiteimage
+}
+{
+clampMap textures/mohmenu/dmloading/stalingrad_snow2.tga // This is where your loading picture are located 
+blendfunc gl_one_minus_src_alpha gl_src_alpha
+}
+
+

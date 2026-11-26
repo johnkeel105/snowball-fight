@@ -1,0 +1,24 @@
+// Below Zero 1
+// BY: [KreatoR]
+
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "Below Zero 1"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" "By [KreatoR]"
+setcvar "g_obj_axistext1" ""
+setcvar "g_obj_axistext2" "I aM tHe KrEaToR"
+setcvar "g_obj_axistext3" "yOu ArE tHe KrEaTeD"
+
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/belowzero1.tga"
+
+	
+	level.addsnow = 1
+
+	exec global/snowcontest.scr
+
+        level.belowzero1mood = 1
+        exec global/belowzero1mood.scr
+
+end

@@ -1,0 +1,6 @@
+// make some mood :)
+	if (level.belowzero1mood == 1)
+	{
+		soundtrack "music/m6l2a.mus"
+		
+	}

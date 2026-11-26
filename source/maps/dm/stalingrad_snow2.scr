@@ -1,0 +1,49 @@
+// STALINGRAD SNOW II TDM FFA RB
+// BY GEN COBRA (Chris Murchison)
+
+main:
+setcvar "g_obj_alliedtext1" "Stalingrad"
+setcvar "g_obj_alliedtext2" "Snow II"
+setcvar "g_obj_alliedtext3" "by"
+setcvar "g_obj_axistext1" "GEN COBRA"
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+level.script="maps/dm/stalingrad_snow2.scr"		
+level.music="stalingrad_snow2"
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/stalingrad_snow2.tga"
+	local.master = spawn ScriptMaster 
+
+//exec global/ambient.scr stalingrad_snow2
+exec global/ambient.scr mohdm7
+exec global/exploder.scr
+exec global/ai.scr
+exec global/bomber.scr
+exec global/spotlight.scr
+exec global/door_locked.scr::lock
+exec global/shutter.scr
+// call additional stuff for playing this map round based is needed
+if(level.roundbased)
+thread roundbasedthread
+
+// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+		
+	level waitTill prespawn
+
+thread global/shutter.scr::shuttrig 1
+thread global/shutter.scr::shuttrig 2
+thread global/shutter.scr::shuttrig 3
+thread global/shutter.scr::shuttrig 4
+thread global/shutter.scr::shuttrig 5
+	//*** Precache Dm Stuff
+	
+exec global/DMprecache.scr
+	
+level.script = maps/dm/stalingrad_snow2.scr
+
+	level waittill spawn
+
+        level.addsnow = 1
+        exec global/snowcontest.scr

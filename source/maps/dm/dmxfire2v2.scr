@@ -1,0 +1,67 @@
+// Crossfire Courtyard 2v2
+// Ydiss
+
+main:
+
+
+	setcvar "g_obj_alliedtext1" "Crossfire Courtyard 2v2" 
+	setcvar "g_obj_alliedtext2" "By Y'diss"
+	setcvar "g_obj_alliedtext3" "This map is designed"
+
+	setcvar "g_obj_axistext1" "for 1v1 or 2v2 battles"
+	setcvar "g_obj_axistext2" "or no more than 6 players"
+	setcvar "g_obj_axistext3" ""
+	
+	setcvar "g_scoreboardpic" "dmxfire2v2.tga"
+
+	// call additional stuff for playing this map round based is needed
+
+	if(level.roundbased)
+		thread roundbasedthread
+
+	level waittill prespawn
+	
+	//*** Precache Dm Stuff
+		exec global/DMprecache.scr
+		
+		level.script = maps/dm/dmxfire2v2.scr
+		exec global/ambient.scr mohdm7
+		exec maps/dm/dmxfire2v2_precache.scr
+	
+
+	level.script = maps/dm/dmxfire2v2.scr
+	exec global/ambient.scr mohdm7
+      level waittill spawn
+
+level.addsnow = 1
+        exec global/snowcontest.scr	
+
+end
+
+//-----------------------------------------------------------------------------
+
+
+roundbasedthread:
+
+	// Can specify different scoreboard messages for round based games here.
+
+	level waitTill prespawn
+
+	level waittill spawn
+
+		// set the parameters for this round based match
+		level.dmrespawning = 0 // 1 or 0
+		level.dmroundlimit = 5 // round time limit in minutes
+		level.clockside = kills // set to axis, allies, kills, or draw
+
+	level waittill roundstart
+
+end
+
+
+
+
+	
+	
+	
+	

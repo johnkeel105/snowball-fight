@@ -1,0 +1,43 @@
+main: 
+
+// set scoreboard messages 
+setcvar "g_obj_alliedtext1" "Snow Sniper Fury" 
+setcvar "g_obj_alliedtext2" "by MCunha98" 
+setcvar "g_obj_alliedtext3" "" 
+setcvar "g_obj_axistext1" "" 
+setcvar "g_obj_axistext2" "" 
+setcvar "g_obj_axistext3" "" 
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/snowsniperfury_loading.jpg"
+
+
+
+level waittill spawn
+	
+	level.addsnow = 1
+
+	exec global/snowcontest.scr
+
+
+ if(level.roundbased) 
+  thread roundbasedthread 
+  level waittill prespawn 
+
+  exec global/DMprecache.scr 
+  exec global/door_locked.scr
+  level.script = maps/dm/user_98snowsniperfury.scr 
+  exec global/ambient.scr mohdm3
+
+  $world farplane_color "0.752941 0.752941 0.752941" 
+  level.fogplane = 4300 
+  $world farplane level.fogplane
+
+  level waittill roundstart
+end 
+
+roundbasedthread: 
+ level waitTill prespawn 
+ level waittill spawn 
+ level.dmrespawning = 0 
+ level.dmroundlimit = 5 
+ level.clockside = kills
+end 

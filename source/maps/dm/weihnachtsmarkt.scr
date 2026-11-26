@@ -1,0 +1,20 @@
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "Weihnachtsmarkt"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" ""
+setcvar "g_obj_axistext1" ""
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/weihnachtsmarkt.tga"
+
+exec global/door_locked.scr::lock
+exec global/snowcontest.scr
+exec global/ambient.scr mohdm3
+
+level.addsnow = 1
+
+
+end

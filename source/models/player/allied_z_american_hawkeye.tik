@@ -1,0 +1,33 @@
+TIKI
+setup
+{
+	scale 0.52
+	path models/human/french_resistance
+	skelmodel resistance.skd
+
+	surface pants shader hawk_pants
+	surface cullpants shader cull_hawk_pants
+	surface shirt shader hawk_jacket
+	surface cullshirt shader cull_hawk_jacket
+	surface inside shader hawk_jacket
+
+	path models/human/heads
+	skelmodel head2.skd
+	surface head shader hawk_face
+
+	// HANDS
+	// =======================================================
+	path models/human/hands
+	skelmodel hand.skd
+	surface hand shader handsnew
+}
+
+init
+{
+	server
+	{
+		voicetype airborne // set the voicetype to use for multiplayer instant messaging
+	}
+}
+
+$include models/player/base/include.txt

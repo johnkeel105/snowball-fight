@@ -1,0 +1,18 @@
+path sound/amb_stereo
+normal Amb_M2_SnowExt.mp3
+aux1 Amb_M2_SnowExt.mp3
+aux2 Amb_M6_PrisonInt.mp3
+
+!normal loop
+!normal volume 2
+
+!aux1 loop
+!aux1 volume 2
+
+!aux2 loop
+!aux2 volume 0.5
+
+
+
+
+

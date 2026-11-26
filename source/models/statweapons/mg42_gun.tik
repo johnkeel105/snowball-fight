@@ -17,7 +17,7 @@ init
 	{
 		classname		TurretGun
 		weapontype		mg
-		name			"MG42 (broken)"
+		name			"MG42 (Frozen)"
 
 		// turret settings
 		idleCheckOffset	"-56 0 0"
@@ -26,8 +26,9 @@ init
 		//viewjitter		0.75
 
 		// Primary fire type info
-		firetype		bullet
-//		ammotype		"MG"
+		firetype		projectile
+//		ammotype		"grenade"
+		projectile		models/projectiles/M2FGrenade_primary.tik
 		meansofdeath	bullet
 		bulletcount		1
 //		clipsize		20
@@ -52,13 +53,15 @@ init
 		dmbulletdamage	45
 		dmbulletspread	40 40
 		
-		//setplayerusable 0 // don't allow usage of mg-42s in snowcontest mode
+		//setplayerusable 1 // don't allow usage of mg-42s in snowcontest mode
 	}
 	client
 	{
 		cache muzsprite.spr
 		cache models/fx/muzflash.tik
 		cache models/ammo/rifleshell.tik
+		cache models/projectiles/M2FGrenade_primary.tik
+		cache models/projectiles/M2FGrenade.tik
 	}
 }
 

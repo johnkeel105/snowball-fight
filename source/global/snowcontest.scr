@@ -26,10 +26,10 @@ info:
 	wait 30
 	while(1)
 	{
-		locprint 160 80 ("Snow Contest v" + level.sc_version + " by jv_map")
-		wait 3
-		locprint 140 80 "Download at: www.planetmedal.com/freebrief"
-		wait 120
+		locprint 160 80 ("Snow Contest v" + level.sc_version + " by jv_map and updated by |DOS| Clan")
+		wait 5
+		locprint 140 80 "Download at: moddb.com/mods/snowball"
+		wait 60
 	}
 end
 

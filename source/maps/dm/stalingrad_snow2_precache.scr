@@ -1,0 +1,12 @@
+exec global/DMprecache.scr
+cache models/items/item_100_healthbox.tik
+cache models/weapons/kar98sniper.tik
+cache models/statweapons/mg42_gun.tik
+cache models/emitters/snowdrift.tik
+cache models/statweapons/mg42_bipod_nonstatic.tik
+cache models/vehicles/fockwulf_d.tik
+cache models/vehicles/opeltruckgreen_canopy.tik
+cache models/miscobj/searchlightbase.tik
+cache models/vehicles/vehiclesoundentity.tik
+cache models/vehicles/stuka_fly.tik
+

@@ -1,0 +1,73 @@
+// STALINGRAD SNOW II TDM FFA RB
+// BY GEN COBRA (Chris Murchison)
+
+main:
+setcvar "g_obj_alliedtext1" "Stalingrad"
+setcvar "g_obj_alliedtext2" "Snow II"
+setcvar "g_obj_alliedtext3" "by"
+setcvar "g_obj_axistext1" "GEN COBRA"
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+level.script="maps/dm/stalingrad_snow2.scr"		
+level.music="stalingrad_snow2"
+setcvar "g_scoreboardpic" "textures/mohmenu/dmloading/stalingrad_snow2.tga"
+	local.master = spawn ScriptMaster 
+
+exec global/ambient.scr stalingrad_snow2
+exec global/exploder.scr
+exec global/ai.scr
+exec global/bomber.scr
+exec global/spotlight.scr
+exec global/door_locked.scr::lock
+exec global/shutter.scr
+// call additional stuff for playing this map round based is needed
+if(level.roundbased)
+thread roundbasedthread
+
+// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+		
+	level waitTill prespawn
+
+thread global/shutter.scr::shuttrig 1
+thread global/shutter.scr::shuttrig 2
+thread global/shutter.scr::shuttrig 3
+thread global/shutter.scr::shuttrig 4
+thread global/shutter.scr::shuttrig 5
+	//*** Precache Dm Stuff
+	
+exec global/DMprecache.scr
+	
+level.script = maps/dm/stalingrad_snow2.scr
+
+	level waittill spawn
+exec global/snowcontest.scr
+wait 2
+
+if(local.string[25] == "2")
+{
+level.rain_speed = "60"
+level.rain_speed_vary = "2"
+level.rain_length = "2"
+level.rain_width = "1"
+level.rain_density = "5"
+level.rain_slant = "1"
+level.rain_min_dist = "768"
+level.rain_numshaders = 12
+level.rain_shader = "textures/snow"
+}
+else
+{
+level.rain_speed = "32"
+level.rain_speed_vary = "16"
+level.rain_length = "2"
+level.rain_width = "1"
+level.rain_density = ".8"
+level.rain_slant = "250"
+level.rain_min_dist = "768"
+level.rain_numshaders = 12
+level.rain_shader = "textures/snow"
+}
+end

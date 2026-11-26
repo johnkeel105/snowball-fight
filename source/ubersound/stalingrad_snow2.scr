@@ -1,0 +1,2 @@
+aliascache shuttersqueak_0 sound/mechanics/Mec_ShutterSqueak_01.wav soundparms 0.5 0.2 0.8 0.4 250 2500 item loaded maps "dm "
+aliascache shutterhit_0 sound/mechanics/Mec_ShutterHit_01.wav soundparms 0.5 0.2 0.8 0.4 250 2500 item loaded maps "dm "

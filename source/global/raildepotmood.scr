@@ -1,0 +1,6 @@
+// make some mood :)
+	if (level.raildepotmood == 1)
+	{
+		soundtrack "music/m6l1c.mus"
+		
+	}

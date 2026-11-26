@@ -1,0 +1,56 @@
+TIKI
+setup
+{
+	
+//	path models/human/german_winter_type2
+//	skelmodel wintersoldier2.skd
+
+	path models/human
+	skelmodel finwinter2.skd
+	surface finwint_pants2 shader winterpants3
+	surface finwint_top2 shader hayha_shirt
+	surface hand shader mittens2
+	surface neckband shader fin_neckband
+
+
+	path models/human/heads			// Set new path for head model
+	skelmodel head1.skd			// Set head model
+	surface head shader j_face
+
+	path models/gear/g_headgear
+
+	skelmodel coveredhelmet.skd
+	surface outside shader winterhelmet1
+	surface inside shader german-helmet_inside
+
+	
+
+}
+
+
+//
+// define what folder to get specific sound from for the player model
+//
+$define pulloutdir sound/weapons/pullout
+
+
+init
+{
+	client
+	{
+		// Cache sounds here
+	}
+	server
+	{
+		voicetype axis5 // set the voicetype to use for multiplayer instant messaging
+	}
+}
+
+
+//
+// include the base player model definition
+//
+$include models/player/base/include.txt
+
+// need to indicate the end of the tiki file because we have a tiki command at the end
+//end
