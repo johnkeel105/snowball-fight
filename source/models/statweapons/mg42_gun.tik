@@ -54,6 +54,8 @@ init
 		dmbulletspread	40 40
 		dmusenoammo		1 // 1.4-test fix: DM turret must not sit at 0 ammo
 		dmstartammo		999
+		dmprojectile		models/projectiles/M2FGrenade_primary.tik // 1.4-test fix: DM fire needs its own projectile
+		dmammorequired		0
 
 		cache models/projectiles/M2FGrenade_primary.tik
 		cache models/projectiles/M2FGrenade.tik
