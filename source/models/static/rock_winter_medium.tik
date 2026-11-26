@@ -1,0 +1,64 @@
+// 1.45-test: mod override of the stock winter rock tik. Modded clients load this
+// (regular snowball look); unmodded clients load their stock winter rock instead.
+setup
+{
+	scale 3.33 // 1.45-test: compensates the 0.15 entity scale so modded clients keep the regular snowball size
+	//lod_scale 30
+	
+	path models/projectiles/M2FGrenade
+	skelmodel grenade_air.skd
+	surface grenade shader M2FragGrenade // stock shader name; modded clients override it with snow, unmodded clients see the stock grenade
+	
+	/*
+	path models/snowcontest
+	skelmodel snowball.skd
+	surface snowball shader snowball
+	*/
+}
+
+
+init
+{
+	server
+	{
+		classname Projectile
+		anim idle
+		scale			0.15 // 1.45-test: shrinks the stock winter rock on unmodded clients to snowball size
+		setsize			"-2 -2 -2" "2 2 2"
+		life			14.0
+		dmlife			13.0
+		hitdamage		800
+		health			1
+		takedamage
+		meansofdeath		thrownobject
+		impactmarkshader	  snowonwall
+//		impactmarkshader      blastmark
+		impactmarkradius      10 // doesn't really seem to work :S
+		impactmarkorientation random
+		explosionmodel	models/fx/m2fgrenadeexplosion.tik
+		//bouncetouch
+		//bouncesound			grenade_bounce_soft
+		//bouncesound_metal	grenade_bounce_metal
+		//bouncesound_hard	grenade_bounce_hard
+		//bouncesound_water	grenade_bounce_water
+//		notouchdamage
+		//smashthroughglass 64
+		gravity			0.8
+		//avelocity		random 90 random 90 60
+		explodeontouch
+		//cache blastmark.spr
+		//cache models/fx/grenexp_snow.tik // 1.4-test: file not in package
+	}
+}
+
+animations
+{
+	idle	grenade_ping.skc
+	{
+		server
+		{
+			first ai_event grenade 384	// explosion radius is 256
+			last anim idle			// HACK! for some reason, server events don't get reposted after looping
+		}
+	}
+}

@@ -28,7 +28,7 @@ init
 		// Primary fire type info
 		firetype		projectile
 //		ammotype		"grenade"
-		projectile		models/projectiles/M2FGrenade_primary.tik
+		projectile		models/static/rock_winter_medium.tik
 		meansofdeath	bullet
 		bulletcount		1
 //		clipsize		20
@@ -54,11 +54,11 @@ init
 		dmbulletspread	40 40
 		dmusenoammo		1 // 1.4-test fix: DM turret must not sit at 0 ammo
 		dmstartammo		999
-		dmprojectile		models/projectiles/M2FGrenade_primary.tik // 1.4-test fix: DM fire needs its own projectile
+		dmprojectile		models/static/rock_winter_medium.tik // 1.4-test fix: DM fire needs its own projectile
 		dmammorequired		0
 
-		cache models/projectiles/M2FGrenade_primary.tik
-		cache models/projectiles/M2FGrenade.tik
+		cache models/static/rock_winter_medium.tik
+		cache models/static/rock_winter_medium.tik
 		
 		setplayerusable 1 // 1.4-test: mountable snowball MG
 	}
@@ -67,8 +67,8 @@ init
 		cache muzsprite.spr
 		cache models/fx/muzflash.tik
 		cache models/ammo/rifleshell.tik
-		cache models/projectiles/M2FGrenade_primary.tik
-		cache models/projectiles/M2FGrenade.tik
+		cache models/static/rock_winter_medium.tik
+		cache models/static/rock_winter_medium.tik
 	}
 }
 
