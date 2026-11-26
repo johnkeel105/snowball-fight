@@ -13,9 +13,11 @@ setup
 	surface material2 shader snowball
 	*/
 	
-	path models/snowcontest
-	skelmodel snowball.skd
-	surface snowball shader snowball
+	// 1.42-test: stock grenade model so players without the mod see a
+	// snowball in hand; the mod overrides the M2FragGrenade shader with snow
+	path models/weapons/M2FragGrenade
+	skelmodel grenade.skd
+	surface grenade shader M2FragGrenade
 }
 
 init
@@ -90,39 +92,39 @@ init
 
 animations
 {
-	raise snowball.skc
+	raise grenade.skc
 	{
 		// if we're pulling out grenades, we've definatly got 'em
 		server
 		{
-			enter surface snowball -nodraw
+			enter surface grenade -nodraw
 		}
 	}
-	idle snowball.skc
+	idle grenade.skc
 	{
 		server
 		{
-			enter surface snowball -nodraw
+			enter surface grenade -nodraw
 		}
 	}
 
 	// this should make sure that it doesn't look like there's a grenade in hand when you don't have one
-	idle_empty snowball.skc
+	idle_empty grenade.skc
 	{
 		server
 		{
-			enter surface snowball +nodraw
+			enter surface grenade +nodraw
 		}
 	}
 
-	charge snowball.skc
+	charge grenade.skc
 	{
 		client
 		{
 			enter sound snd_step_snow weapon
 		}
 	}
-	secondarycharge snowball.skc
+	secondarycharge grenade.skc
 	{
 		client
 		{
@@ -131,26 +133,26 @@ animations
 	}
 	
 //	fire grenade_fire.skc
-	fire snowball.skc
+	fire grenade_fire.skc
 	{
 		server
 		{
 			first shoot
-			first surface snowball +nodraw
-//			15 surface snowball -nodraw
+			first surface grenade +nodraw
+//			15 surface grenade -nodraw
 		}
 		client
 		{
 			first sound snd_step_snow weapon
 		}
 	}
-	secondaryfire snowball.skc
+	secondaryfire grenade_fire.skc
 	{
 		server
 		{
 			first shoot secondary
-			first surface snowball +nodraw
-//			15 surface snowball -nodraw
+			first surface grenade +nodraw
+//			15 surface grenade -nodraw
 		}
 		client
 		{
@@ -158,11 +160,11 @@ animations
 		}
 	}
 
-	reload snowball.skc
+	reload grenade.skc
 	{
 		server
 		{
-			first surface snowball -nodraw
+			first surface grenade -nodraw
 		}
 	}
 }
