@@ -52,6 +52,11 @@ init
 		dmbulletrange		4000
 		dmbulletdamage	45
 		dmbulletspread	40 40
+		dmusenoammo		1 // 1.4-test fix: DM turret must not sit at 0 ammo
+		dmstartammo		999
+
+		cache models/projectiles/M2FGrenade_primary.tik
+		cache models/projectiles/M2FGrenade.tik
 		
 		setplayerusable 1 // 1.4-test: mountable snowball MG
 	}
