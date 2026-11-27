@@ -1,6 +1,6 @@
 main:
-	level.sc_version = "1.46-test"
-	println "Snowball Fight 1.46-test: top-priority fixes loaded"
+	level.sc_version = "1.47-test"
+	println "Snowball Fight 1.47-test: top-priority fixes loaded"
 
 	exec global/jv_mp_players.snow
 	waitthread global/jv_mp_players.snow::add_stage_thread ("global/snowcontest.scr"::takeweapons) join 0
@@ -30,6 +30,8 @@ info:
 		locprint 160 80 ("Snow Contest v" + level.sc_version + " by jv_map and updated by |DOS| Clan")
 		wait 5
 		locprint 140 80 "Download at: moddb.com/mods/snowball"
+		wait 5
+		locprint 150 80 "Integrated into the Medal of Honor Community Launcher"
 		wait 60
 	}
 end
